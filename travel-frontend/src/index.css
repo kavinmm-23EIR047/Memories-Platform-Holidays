@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Merienda:wght@300..900&family=Permanent+Marker&family=Nosifer&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  scrollbar-gutter: stable;
+  background-color: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e1b30d;
+  border-radius: 3px;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #f5d554 !important;
+  color: #ffffff !important;
+  width: 36px;              /* Smaller circular background */
+  height: 36px;
+  padding: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #f5d55480;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f8b500;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+/* Adjust Swiper Arrow Icon Size */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px !important; /* ↓ Reduce this if needed more */
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Hover effect */
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+  color: #f5d554;
+  background-color: #fff;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+  background: #a7a1a1 !important;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  margin: 0 6px !important;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+/* Active Dot Animation */
+.swiper-pagination-bullet-active {
+  background: #e1b30d !important;
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* Animated loading bar inside active dot */
+.swiper-pagination-bullet-active::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ffffff;
+  animation: fillDot 4s linear forwards;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+/* Pagination wrapper */
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* Hide span.progress if present */
+.swiper-pagination-bullet .progress {
+  display: none;
+}
+
+/* Full screen loader container */
+.loader-container {
+  height: 100vh;
+  width: 100vw;
+  background: #0e0e0e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper for tire and fire animation */
+.loader-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+@layer utilities {
+  @keyframes rotate-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-rotate-slow {
+    animation: rotate-slow 10s linear infinite;
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 1s ease-out forwards;
+  }
+}
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(253, 204, 0, 0.8),
+                 0 0 16px rgba(253, 204, 0, 0.6),
+                 0 0 24px rgba(253, 204, 0, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 16px rgba(253, 204, 0, 1),
+                 0 0 24px rgba(253, 204, 0, 0.8),
+                 0 0 32px rgba(253, 204, 0, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+
+/* Fire background ring */
+.fire-ring {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #ff0, #ff6600, #ff0000);
+  filter: blur(15px);
+  animation: firePulse 0.8s infinite ease-in-out alternate;
+  z-index: 0;
+  box-shadow:
+    0 0 20px #ff0,
+    0 0 40px #ff6600,
+    0 0 60px #ff0000;
+}
+
+/* Tire spinner */
+.spinner {
+  width: 160px;
+  height: 160px;
+  z-index: 1;
+  position: relative;
+  animation: spin 1.5s linear infinite;
+}
+
+/* Keyframes for spinning tire */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Flame pulsing effect */
+@keyframes firePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes fillDot {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Responsive Swiper Buttons */
+@media (max-width: 640px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 12px !important;
+  }
+}
