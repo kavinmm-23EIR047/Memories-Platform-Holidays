@@ -72,9 +72,9 @@
 
 import React, { useEffect, useState } from "react";
 import busGif from "../assets/gallery/bus.gif";
-import bgImage from "../assets/gallery/earth.JPEG";
-import bgdImage from "../assets/gallery/earthdesk.JPEG";
-import bgmImage from "../assets/gallery/earthbg.JPEG";
+import bgImage from "../assets/gallery/earth.jpeg";
+import bgdImage from "../assets/gallery/earthdesk.jpeg";
+import bgmImage from "../assets/gallery/earthbg.jpeg";
 
 const Loader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
