@@ -2,9 +2,18 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const router = express.Router();
+require("dotenv").config();
 
 // ✅ Google Sheets Setup
-const credentials = require("./google-credentials.json"); // Your service account key
+const credentials = {
+  type: "service_account",
+  project_id: process.env.GOOGLE_PROJECT_ID,
+ private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  client_email: process.env.GOOGLE_CLIENT_EMAIL,
+  client_id: process.env.GOOGLE_CLIENT_ID,
+};
+
+
 const SHEET_ID = "1GPlGa7k_KOsGtFHwj5nd14WE31CN-VpvwZJp3d8yf8I"; // ✅ Your sheet ID
 const SHEET_NAME = "feedback"; // ✅ Tab name inside your sheet
 
