@@ -5,20 +5,13 @@ import MainScrollPage from "./components/MainScrollPage";
 import GalleryBusPage from "./components/GalleryBusPage";
 import Feedback from "./components/Feedback";
 import Loader from "./components/Loader.jsx";
-import { useState, useEffect } from "react";
-import "./index.css"; // Include loader styles here
+import { useState } from "react";
+import "./index.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 10000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) return <Loader />;
+  if (loading) return <Loader onComplete={() => setLoading(false)} />;
 
   return (
     <div className="bg-white text-gray-800">

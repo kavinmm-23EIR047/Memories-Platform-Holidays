@@ -1,114 +1,172 @@
+// import React, { useEffect, useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   FaPlaneDeparture,
+//   FaBus,
+//   FaHotel,
+//   FaUtensils,
+//   FaCar,
+//   FaTrain,
+// } from "react-icons/fa";
+
+// const icons = [
+//   FaPlaneDeparture,
+//   FaBus,
+//   FaHotel,
+//   FaUtensils,
+//   FaCar,
+//   FaTrain,
+// ];
+
+// const Loader = () => {
+//   const [index, setIndex] = useState(0);
+
+//   useEffect(() => {
+//     const timer = setInterval(() => {
+//       setIndex((prev) => (prev + 1) % icons.length);
+//     }, 900); // Faster switch (short delay)
+//     return () => clearInterval(timer);
+//   }, []);
+
+//   const CurrentIcon = icons[index];
+
+//   return (
+//     <div className="h-screen w-full flex flex-col items-center justify-center bg-white relative overflow-hidden">
+//       {/* Circular Gradient Background with Jelly Animation */}
+//       <motion.div
+//         className="w-40 h-40 rounded-full overflow-hidden relative flex items-center justify-center"
+//         style={{
+//           backgroundImage: "linear-gradient(135deg, #f1c709, #b16611)",
+//           boxShadow: "0 8px 18px rgba(0,0,0,0.15)",
+//         }}
+//         animate={{
+//           scale: [1, 1.1, 0.95, 1.05, 1],
+//         }}
+//         transition={{
+//           duration: 1.2,
+//           repeat: Infinity,
+//           ease: "easeInOut",
+//         }}
+//       >
+//         <AnimatePresence mode="wait">
+//           <motion.div
+//             key={index}
+//             initial={{ x: -100, opacity: 0 }}
+//             animate={{ x: 0, opacity: 1 }}
+//             exit={{ x: 100, opacity: 0 }}
+//             transition={{ duration: 0.4, ease: "easeInOut" }}
+//             className="absolute"
+//           >
+//             <CurrentIcon style={{ fontSize: "48px", color: "#ffffff" }} />
+//           </motion.div>
+//         </AnimatePresence>
+//       </motion.div>
+
+//       {/* Static Branding Text */}
+//       <motion.div
+//         className="mt-8 text-[#99837e] text-xl font-semibold tracking-wide"
+//         initial={{ opacity: 0, scale: 0.95 }}
+//         animate={{ opacity: 1, scale: 1 }}
+//         transition={{ duration: 1.5, ease: "easeOut" }}
+//       >
+//         MEMORIES PLATFORM
+//       </motion.div>
+
+//       {/* Stylish Loading Animation */}
+//       <div className="absolute bottom-10 text-[#99837e] text-lg font-medium flex gap-1">
+//         <span>Loading</span>
+//         <motion.span
+//           animate={{ opacity: [0.3, 1, 0.3] }}
+//           transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+//         >
+//           .
+//         </motion.span>
+//         <motion.span
+//           animate={{ opacity: [0.3, 1, 0.3] }}
+//           transition={{ repeat: Infinity, duration: 1, delay: 0.2, ease: "easeInOut" }}
+//         >
+//           .
+//         </motion.span>
+//         <motion.span
+//           animate={{ opacity: [0.3, 1, 0.3] }}
+//           transition={{ repeat: Infinity, duration: 1, delay: 0.4, ease: "easeInOut" }}
+//         >
+//           .
+//         </motion.span>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Loader;
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import busGif from "../assets/gallery/bus.gif";
-import bgImage from "../assets/gallery/earth.jpeg";
-import bgdImage from "../assets/gallery/earthdesk.jpeg";
-import bgmImage from "../assets/gallery/earthbg.jpeg";
 
 const Loader = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [phase, setPhase] = useState("bus");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setFadeOut(true);
-            setTimeout(() => {
-              if (onComplete) onComplete();
-            }, 800);
-          }, 400);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 80);
-    return () => clearInterval(interval);
+    const timer1 = setTimeout(() => setPhase("title"), 3000);
+    const timer2 = setTimeout(() => {
+      setPhase("done");
+      if (onComplete) onComplete();
+    }, 5200); // 2.2s for title + dots
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [onComplete]);
 
+  if (phase === "done") return null;
+
   return (
-    <div
-      className={`fixed inset-0 z-50 transition-opacity duration-700 ${
-        fadeOut ? "opacity-0" : "opacity-100"
-      }`}
-    >
-      {/* ---- Base Blurred Background ---- */}
-      <img
-        src={bgmImage}
-        alt="Blurred Background"
-        className="absolute inset-0 w-full h-full object-fill z-0"
-      />
+    <div className="h-screen w-full flex flex-col items-center justify-center bg-[#f1c709] relative overflow-hidden transition-opacity duration-1000">
+      <AnimatePresence mode="wait">
+        {phase === "bus" && (
+          <motion.img
+            key="bus"
+            src={busGif}
+            alt="Bus loading"
+            className="w-156 md:w-172 lg:w-196 h-auto"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+            transition={{ duration: 1 }}
+          />
+        )}
 
-      {/* ---- Mobile Background Image ---- */}
-      <img
-        src={bgImage}
-        alt="Mobile Background"
-        className="absolute inset-0 w-full h-full object-fill block md:hidden z-10"
-      />
+        {phase === "title" && (
+          <motion.div
+            key="title"
+            className="flex flex-col items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          >
+            <h1 className="text-[28px] sm:text-[32px] md:text-[42px] lg:text-[56px] font-extrabold tracking-wider text-center px-4">
+              <span className="font-pai text-[#691303]">MEMORIES</span>{" "}
+              <span className="font-pai text-white">PLATFORM</span>
+            </h1>
 
-      {/* ---- Desktop Background Image ---- */}
-      <img
-        src={bgdImage}
-        alt="Desktop Background"
-        className="absolute inset-0 w-full h-full object-fill hidden md:block z-10"
-      />
-
-      {/* ---------- Mobile Layout ---------- */}
-      <div className="md:hidden flex items-end justify-center h-full relative z-20 pb-20 px-6">
-        <div className="w-full max-w-md">
-          <div className="relative w-full h-[64px] mb-1">
-            <img
-              src={busGif}
-              alt="Bus"
-              className="absolute w-[200px] h-auto transition-all duration-300 ease-linear"
-              style={{
-                left: `calc(${Math.max(progress - 5, 0)}% - 30px)`,
-                bottom: 0,
-              }}
-            />
-          </div>
-
-          <div className="w-full bg-white/50 h-3 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-yellow-400 to-orange-600 transition-all duration-300 rounded-full"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          <p className="text-white text-center text-sm font-semibold mt-2 drop-shadow-md">
-            {progress}%
-          </p>
-        </div>
-      </div>
-
-      {/* ---------- Desktop Layout ---------- */}
-      <div className="hidden md:flex items-end justify-center h-full relative z-20 pb-4 px-12">
-        <div className="w-full max-w-5xl">
-          <div className="relative w-full h-[64px] mb-2">
-            <img
-              src={busGif}
-              alt="Bus"
-              className="absolute w-[180px] lg:w-[220px] xl:w-[260px] 2xl:w-[300px] h-auto transition-all duration-300 ease-linear"
-              style={{
-                left: `calc(${Math.max(progress - 5, 0)}% - 60px)`,
-                bottom: 0,
-              }}
-            />
-          </div>
-
-          <div className="w-full bg-white/50 h-4 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-yellow-400 to-orange-600 transition-all duration-300 rounded-full"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          <p className="text-white text-center text-base font-semibold mt-3 drop-shadow-md">
-            {progress}%
-          </p>
-        </div>
-      </div>
+            {/* Loading Dots */}
+            <div className="flex gap-1 mt-4">
+              {[0, 1, 2].map((i) => (
+                <motion.span
+                  key={i}
+                  className="w-2 h-2 rounded-full bg-[#691303]"
+                  animate={{ opacity: [0.2, 1, 0.2] }}
+                  transition={{
+                    duration: 1,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
