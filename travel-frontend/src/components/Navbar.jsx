@@ -52,16 +52,23 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden z-50 relative">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-[#f1c709] text-4xl font-bold"
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-[#f1c709] text-4xl font-bold transition-transform duration-300 ease-in-out transform hover:scale-110"
+  >
+    <span
+      className={`inline-block transition-all duration-500 ease-in-out ${
+        menuOpen ? "rotate-180 scale-110" : "rotate-0"
+      }`}
+    >
+      {menuOpen ? "✕" : "☰"}
+    </span>
+  </button>
+</div>
+
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex gap-10 text-[#f1c709] text-base lg:text-lg items-center">
+        <ul className="hidden md:flex gap-10 text-[#f1c709] text-base lg:text-lg items-center font-kui">
           {navLinks.map((link) => (
             <li key={link.name}>
               <button
@@ -90,7 +97,7 @@ const Navbar = () => {
           menuOpen ? "translate-x-0" : "-translate-x-full"
         } z-40 flex flex-col justify-between pt-28 pb-10`}
       >
-        <ul className="flex flex-col items-start pl-8 gap-8 text-lg text-[#f1c709] font-semibold tracking-wide">
+        <ul className="flex flex-col items-start pl-8 gap-8 text-lg text-[#f1c709] font-semibold tracking-wide font-kui">
           {navLinks.map((link) => (
             <li key={link.name}>
               <button
@@ -117,7 +124,7 @@ const Navbar = () => {
             © 2025 Memories Platform. All rights reserved.
           </p>
           <div className="flex justify-center">
-            <img src={logo} alt="Logo" className="h-30 object-contain" />
+            <img src={logo} alt="Logo" className="h-20 object-contain" />
           </div>
         </div>
       </div>

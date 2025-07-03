@@ -167,10 +167,10 @@ const Contact = () => {
       <section className="py-12 px-4 md:px-10 bg-white">
         <div className="relative rounded-2xl p-[2px] bg-gradient-to-br from-[#fceabb] via-[#f8b500] to-[#ffdd95] shadow-md hover:shadow-xl transition duration-300 max-w-xl mx-auto">
           <div className="bg-[#fffdf7] rounded-2xl p-8">
-            <h2 className="text-3xl font-bold text-center mb-6 text-yellow-600 font-mui">
+            <h2 className="text-3xl font-bold text-center mb-6 text-yellow-600 font-kui">
               Contact Us
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-4 font-cui font-bold">
+            <form onSubmit={handleSubmit} className="space-y-4 font-lui font-bold">
               {renderFormFields()}
             </form>
           </div>
@@ -187,7 +187,7 @@ const Contact = () => {
               >
                 ✕
               </button>
-              <h3 className="text-2xl font-bold text-center mb-4 text-yellow-600 font-mui">
+              <h3 className="text-2xl font-bold text-center mb-4 text-yellow-600 font-kui">
                 Quick Contact
               </h3>
               <form onSubmit={handleSubmit} className="space-y-4 font-cui font-bold">

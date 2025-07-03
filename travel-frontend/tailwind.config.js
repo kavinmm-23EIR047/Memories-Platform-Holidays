@@ -12,6 +12,8 @@ export default {
         cui: ['"Alegreya Sans SC"', 'sans-serif'],
         pai: ['"Nosifer"', 'sans-serif'],
         mai: ['"Quantico"', 'sans-serif'],
+        kui: ['"Roboto Condensed", sans-serif'],
+        lui:['"Ysabeau Office", sans-serif;']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

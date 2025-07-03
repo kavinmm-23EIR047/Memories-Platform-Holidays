@@ -43,8 +43,8 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-20 px-4 md:px-8 font-['Open_Sans']">
       <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 md:p-10 max-w-4xl mx-auto shadow-md text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#060304] font-['Poppins'] p-4 md-7 font-edu">
-          Our <span className="text-[#fecc00] font-semibold font-edu">Bus Gallery</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-[#060304] font-['Poppins'] p-4 md-7 font-kui">
+          Our <span className="text-[#fecc00] font-semibold font-kui">Bus Gallery</span>
         </h2>
 
         {/* Swiper Gallery */}
@@ -67,11 +67,11 @@ const Gallery = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 flex flex-col justify-end items-center p-6 text-white text-center">
-                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 font-mai">{bus.name}</h3>
+                  <h3 className="text-3xl sm:text-4xl font-bold mb-6 font-lui">{bus.name}</h3>
                   <Link
                     to={`/gallery/${bus.id}`}
                     onClick={handleExploreClick}
-                    className="bg-gradient-to-r from-[#060304] via-[#fecc00] to-[#060304] text-white px-6 py-3 rounded-md hover:opacity-90 transition bg-[length:200%_200%] animate-gradient-x font-cui"
+                    className="bg-gradient-to-r from-[#060304] via-[#fecc00] to-[#060304] text-white px-6 py-3 rounded-md hover:opacity-90 transition bg-[length:200%_200%] animate-gradient-x font-lui"
                   >
                     Explore →
                   </Link>
@@ -87,8 +87,8 @@ const Gallery = () => {
 
       {/* Quick Access Section (outside the white card) */}
       <div className="mt-16 px-4 max-w-6xl mx-auto">
-        <h3 className="text-3xl font-semibold mb-8 text-center font-['Poppins'] text-[#060304] font-edu">
-          Quick <span className="text-[#fecc00] font-mui">Access</span>
+        <h3 className="text-3xl font-semibold mb-8 text-center font-['Poppins'] text-[#060304] font-kui">
+          Quick <span className="text-[#fecc00] font-kui">Access</span>
         </h3>
 
         {/* Mobile Swiper */}
@@ -111,7 +111,7 @@ const Gallery = () => {
                         <img src={note.img} alt={note.name} className="w-full h-full object-cover rounded-full" />
                       </div>
                     </div>
-                    <p className="mt-2 text-base font-semibold text-center text-[#060304] w-24 truncate font-mui">{note.name}</p>
+                    <p className="mt-2 text-base font-semibold text-center text-[#060304] w-24 truncate font-lui">{note.name}</p>
                   </Link>
                 ) : (
                   <a href={note.to} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
@@ -120,7 +120,7 @@ const Gallery = () => {
                         <img src={note.img} alt={note.name} className="w-full h-full object-cover rounded-full" />
                       </div>
                     </div>
-                    <p className="mt-2 text-sm font-medium text-center text-[#060304] font-mai w-20 truncate">{note.name}</p>
+                    <p className="mt-2 text-sm font-medium text-center text-[#060304] font-lui w-20 truncate">{note.name}</p>
                   </a>
                 )}
               </SwiperSlide>
@@ -138,7 +138,7 @@ const Gallery = () => {
                     <img src={note.img} alt={note.name} className="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
-                <p className="mt-2 text-base font-semibold text-center text-[#060304] max-w-[6.5rem] leading-tight break-words font-mui">{note.name}</p>
+                <p className="mt-2 text-base font-semibold text-center text-[#060304] max-w-[6.5rem] leading-tight break-words font-lui">{note.name}</p>
               </Link>
             ) : (
               <a key={note.id} href={note.to} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
@@ -147,7 +147,7 @@ const Gallery = () => {
                     <img src={note.img} alt={note.name} className="w-full h-full object-cover rounded-full" />
                   </div>
                 </div>
-                <p className="mt-2 text-sm font-medium text-center text-[#060304] font-mai w-20 truncate">{note.name}</p>
+                <p className="mt-2 text-sm font-medium text-center text-[#060304] font-lui w-20 truncate">{note.name}</p>
               </a>
             )
           )}

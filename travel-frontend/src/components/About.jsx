@@ -23,8 +23,8 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-[#fecc00] font-edu">
             Let's <span className="text-[#060304] font-semibold">go</span>
           </h2>
-          <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto font-mai font-bold">
-            Learn more about who we are and why we do what we do.
+          <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto font-kui font-bold">
+            Learn more about who we are and why you here and what we do.
           </p>
         </motion.div>
 
@@ -44,7 +44,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="md:w-1/2 text-center"
           >
-            <p className="text-lg leading-relaxed text-gray-700 font-medium font-cui">
+            <p className="text-lg leading-relaxed text-gray-700 font-medium font-lui">
               We provide <span className="text-amber-600 font-semibold">budget-friendly premium packages</span> for college IVs, school trips, family vacations, and group events across South India. Our focus: safety, comfort & unforgettable journeys.
             </p>
           </motion.div>
@@ -60,10 +60,10 @@ const About = () => {
             className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <Target className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-mai">
+            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
                Expedition 
             </h3>
-            <p className="text-[#d1d1d1] text-base leading-relaxed font-cui">
+            <p className="text-[#d1d1d1] text-base leading-relaxed font-lui">
               Inspiring Journeys, Creating Memories – Multiple Destination at a Time.
 Would you like it to sound more adventurous, luxurious, family-friendly, or eco-conscious? I can Design it your Travel.
             </p>
@@ -77,10 +77,10 @@ Would you like it to sound more adventurous, luxurious, family-friendly, or eco-
             className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <Eye className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-mai">
+            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
              Field of Innovation
             </h3>
-            <p className="text-[#d1d1d1] text-base leading-relaxed font-cui">
+            <p className="text-[#d1d1d1] text-base leading-relaxed font-lui">
               Guiding Journeys, Crafting Dreams — Where Every Destination Becomes a Story
 — Where Technology Meets Wonder, and Every Journey Begins with a Natural Spark of Discovery.
             </p>
@@ -94,10 +94,10 @@ Would you like it to sound more adventurous, luxurious, family-friendly, or eco-
             className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
           >
             <User2 className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-mai">
+            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
               About Us
             </h3>
-            <p className="text-[#e0e0e0] text-base leading-relaxed font-cui">
+            <p className="text-[#e0e0e0] text-base leading-relaxed font-lui">
               At MEMORIESPLATFORM - HOLIDAYS, we believe that every journey should be as unique and unforgettable as the traveler embarking on it. Founded with a passion for exploration and a commitment to excellence, we’ve been crafting exceptional travel experiences that go beyond the ordinary.
 Let’s turn your next destination into a meaningful story.
             </p>

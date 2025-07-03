@@ -56,7 +56,7 @@ const Reviews = () => {
   return (
     <section id="reviews" className="py-20 px-4 md:px-8 font-['Open_Sans'] bg-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 font-mui text-[#ffcc00]">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 font-kui text-[#ffcc00]">
           Reviews
         </h2>
 
@@ -112,15 +112,15 @@ const Reviews = () => {
 
         {/* ✨ Text Reviews */}
         <div className="mt-12">
-          <h3 className="text-xl md:text-2xl font-semibold text-center mb-6 font-mui tracking-wide">
+          <h3 className="text-xl md:text-2xl font-semibold text-center mb-6 font-kui tracking-wide">
             <span className="text-[#ffcc00]">Responsible</span>{" "}
             <span className="text-[#000200]">Reviews</span>
           </h3>
 
           {loading ? (
-            <p className="text-center text-gray-500 font-cui text-sm">Loading reviews...</p>
+            <p className="text-center text-gray-500 font-lui text-sm">Loading reviews...</p>
           ) : textReviews.length === 0 ? (
-            <p className="text-center text-gray-500 font-cui text-sm">
+            <p className="text-center text-gray-500 font-lui text-sm">
               No reviews yet. Be the first to leave one!
             </p>
           ) : (
@@ -156,12 +156,12 @@ const Reviews = () => {
                               className="w-10 h-10 rounded-full object-cover mr-3"
                             />
                           ) : (
-                            <div className="w-10 h-10 rounded-full bg-[#f8b500] flex items-center justify-center text-white font-bold mr-3 font-cui text-sm">
+                            <div className="w-10 h-10 rounded-full bg-[#f8b500] flex items-center justify-center text-white font-bold mr-3 font-lui text-sm">
                               {getInitials(review.name || "Anonymous")}
                             </div>
                           )}
                           <div>
-                            <p className="font-semibold text-gray-800 font-mai text-base">
+                            <p className="font-semibold text-gray-800 font-lui text-base">
                               {review.name || "Anonymous"}
                             </p>
                             <div className="flex text-yellow-500 text-sm mt-1">
@@ -177,7 +177,7 @@ const Reviews = () => {
                             </div>
                           </div>
                         </div>
-                        <p className="text-gray-800 text-sm leading-relaxed font-mai italic">
+                        <p className="text-gray-800 text-sm leading-relaxed font-kui italic">
                           {review.comment}
                         </p>
                       </div>

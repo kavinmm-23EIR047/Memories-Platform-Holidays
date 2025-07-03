@@ -199,7 +199,7 @@ const GalleryBusPage = () => {
   return (
    <section className="pt-32 pb-16 px-6 md:px-12 bg-gray-100 scroll-mt-32">
   <div className="max-w-6xl mx-auto bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
-    <h2 className="text-4xl md:text-5xl font-bold text-[#facc15] text-center mb-10 font-mai">
+    <h2 className="text-4xl md:text-5xl font-bold text-[#facc15] text-center mb-10 font-kui">
       {bus.name}
     </h2>
 
@@ -222,7 +222,7 @@ const GalleryBusPage = () => {
             <img
               src={img}
               alt={`Bus ${idx + 1}`}
-              className="w-full h-[500px] object-cover rounded-xl transform hover:scale-105 transition duration-300 ease-in-out font-mai"
+              className="w-full h-[500px] object-cover rounded-xl transform hover:scale-105 transition duration-300 ease-in-out font-kui"
             />
           </div>
         </SwiperSlide>
@@ -231,7 +231,7 @@ const GalleryBusPage = () => {
 
     {/* 🎥 Video Section */}
     <div className="mt-12">
-      <h3 className="text-3xl font-semibold text-gray-800 mb-6 font-mai text-center">
+      <h3 className="text-3xl font-semibold text-gray-800 mb-6 font-kui text-center">
         Bus Video:
       </h3>
 

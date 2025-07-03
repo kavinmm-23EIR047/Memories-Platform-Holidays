@@ -151,8 +151,8 @@ const CardItem = ({ pkg, swiper }) => {
     <div className="bg-[#fffef8] shadow-lg rounded-lg overflow-hidden">
       <img src={pkg.image} alt={pkg.title} className="w-full h-48 object-cover" />
       <div className="p-4">
-        <h3 className="text-lg font-bold text-[#302d00] mb-2 font-mai">{pkg.title}</h3>
-        <p className="text-sm text-[#7c7a69] mb-3 font-cui">{pkg.description}</p>
+        <h3 className="text-lg font-bold text-[#302d00] mb-2 font-kui">{pkg.title}</h3>
+        <p className="text-sm text-[#7c7a69] mb-3 font-lui">{pkg.description}</p>
 
         <div className="aspect-video mb-3">
           <video
@@ -173,7 +173,7 @@ const CardItem = ({ pkg, swiper }) => {
           href={pkg.pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#fef3c7] text-[#4a3f00] px-3 py-1 rounded text-sm font-medium hover:bg-[#fde68a] transition font-mai"
+          className="bg-[#fef3c7] text-[#4a3f00] px-3 py-1 rounded text-sm font-medium hover:bg-[#fde68a] transition font-lui"
         >
           Download Package PDF
         </a>
@@ -182,7 +182,7 @@ const CardItem = ({ pkg, swiper }) => {
           href={pkg.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="block mt-3 bg-[#facc15] text-[#1c1b00] px-4 py-2 rounded text-center hover:bg-[#eab308] transition font-mai"
+          className="block mt-3 bg-[#facc15] text-[#1c1b00] px-4 py-2 rounded text-center hover:bg-[#eab308] transition font-lui"
         >
           Explore
         </a>
@@ -211,8 +211,8 @@ const Services = () => {
   className="py-20 md:py-28 px-4 md:px-10 text-center font-['Open_Sans']"
 >
   <div className="max-w-6xl mx-auto space-y-8">
-    <h2 className="text-4xl md:text-5xl font-bold text-[#fecc00] font-mui">
-      Our <span className="text-[#060304] font-semibold font-edu">Services</span>
+    <h2 className="text-4xl md:text-5xl font-bold text-[#fecc00] font-kui">
+      Our <span className="text-[#060304] font-semibold font-kui">Services</span>
     </h2>
 
         <Swiper
@@ -241,7 +241,7 @@ const Services = () => {
 
   {/* ✨ Overlay with better text readability */}
   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-[#fecc00]/20 to-transparent z-10 flex items-center justify-center px-4 py-2">
-<h3 className="text-xl md:text-2xl font-bold text-white text-center font-mai px-4 py-2 bg-[#fecc00]/25 rounded-md shadow-md">
+<h3 className="text-xl md:text-2xl font-bold text-white text-center font-kui px-4 py-2 bg-[#fecc00]/25 rounded-md shadow-md">
   {service.title}
 </h3>
 
@@ -261,13 +261,13 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl md:text-3xl font-bold text-[#fdcc00] mb-8 text-center font-edu"
+          className="text-2xl md:text-3xl font-bold text-[#fdcc00] mb-8 text-center font-kui"
         >
           {headingTexts[headingIndex]}{" "}
-          <span className="text-[#070000] font-mui">Package Details</span>
+          <span className="text-[#070000] font-kui">Package Details</span>
         </motion.h2>
 
-        <div className="block md:hidden font-mui">
+        <div className="block md:hidden font-lui">
        <Swiper
         pagination={{ clickable: true }}
         navigation
@@ -296,15 +296,15 @@ const Services = () => {
 
         </div>
 
-        <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-4 font-mui">
+        <div className="hidden md:grid gap-8 md:grid-cols-2 lg:grid-cols-4 font-lui">
           {packageCards.map((pkg, index) => (
             <CardItem key={index} pkg={pkg} navigate={navigate} />
           ))}
         </div>
 
         {/* Celebrations Gallery */}
-        <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-8 text-center font-mui">
-          Celebrations <span className="text-[#fecc00] font-semibold font-edu">Gallery</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-8 text-center font-kui">
+          Celebrations <span className="text-[#fecc00] font-semibold font-kui">Gallery</span>
         </h2>
 
         <div className="block md:hidden">
@@ -366,11 +366,11 @@ const Services = () => {
         </div>
 
         {/* Achievements */}
-        <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-6 text-center font-edu">
-          Our <span className="text-[#fecc00] font-semibold font-mui">Achievements</span>
+        <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-6 text-center font-kui">
+          Our <span className="text-[#fecc00] font-semibold font-kui">Achievements</span>
         </h2>
 
-        <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10 font-cui">
+        <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10 font-lui">
           Over the years, we’ve celebrated milestones that reflect our strength, unity, and determination. 
           From setting records to inspiring communities, every achievement tells our story of passion and perseverance.
         </p>
@@ -391,10 +391,10 @@ const Services = () => {
               className="w-full h-60 object-cover"
             />
             <div className="bg-white p-6">
-              <h3 className="text-xl font-semibold text-[#060304] mb-2 font-mai">
-                Record of Munnar – <span className="font-cui text-[#fecc00]">Single Stroke with 90 Jeeps</span>
+              <h3 className="text-xl font-semibold text-[#060304] mb-2 font-kui">
+                Record of Munnar – <span className="font-kui text-[#fecc00]">Single Stroke with 90 Jeeps</span>
               </h3>
-              <p className="text-gray-600 text-sm font-cui">
+              <p className="text-gray-600 text-sm font-lui">
                 Our team created history in Munnar by pulling 90 jeeps in a single stroke — a demonstration of incredible coordination, power, and team spirit.
               </p>
             </div>
@@ -402,8 +402,8 @@ const Services = () => {
         </div>
 
         {/* Happy Moments Gallery */}
-        <h2 className="text-2xl md:text-3xl text-[#060304] mt-16 mb-8 text-center font-edu">
-          Happy <span className="text-[#fecc00] text-2xl md:text-3xl font-semibold font-mui">Moments Gallery</span>
+        <h2 className="text-2xl md:text-3xl text-[#060304] mt-16 mb-8 text-center font-kui">
+          Happy <span className="text-[#fecc00] text-2xl md:text-3xl font-semibold font-kui">Moments Gallery</span>
         </h2>
 
         <Swiper
