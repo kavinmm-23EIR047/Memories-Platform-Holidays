@@ -15,7 +15,6 @@ const bus8 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750563004/bus8
 const bus9 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750563001/bus9_yqanji.jpg";
 const bus10 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750563003/bus10_ebl418.jpg";
 
-
 const buses = [
   { id: "bus1", name: "RKG", image: bus1 },
   { id: "bus2", name: "Sabari", image: bus2 },
@@ -85,11 +84,23 @@ const Gallery = () => {
         <div className="custom-swiper-pagination mt-6 flex justify-center items-center gap-2" />
       </div>
 
-      {/* Quick Access Section (outside the white card) */}
+      {/* Instagram Memories Platform */}
       <div className="mt-16 px-4 max-w-6xl mx-auto">
-        <h3 className="text-3xl font-semibold mb-8 text-center font-['Poppins'] text-[#060304] font-kui">
-          Quick <span className="text-[#fecc00] font-kui">Access</span>
-        </h3>
+        <div className="flex flex-col items-center justify-center">
+          <div className="mb-2">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram Logo"
+              className="w-12 h-12"
+            />
+          </div>
+          <h3 className="text-4xl font-bold text-center font-['Poppins'] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-2">
+            Instagram Memories Platform
+          </h3>
+          <p className="text-gray-700 text-sm mb-4 text-center font-medium">
+            @memories.platform – holidays ✨, fun times & story highlights
+          </p>
+        </div>
 
         {/* Mobile Swiper */}
         <div className="block lg:hidden">
