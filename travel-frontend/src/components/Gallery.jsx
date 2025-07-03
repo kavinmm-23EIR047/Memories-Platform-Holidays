@@ -94,10 +94,10 @@ const Gallery = () => {
               className="w-12 h-12"
             />
           </div>
-          <h3 className="text-4xl font-bold text-center font-['Poppins'] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-2">
+          {/* <h3 className="text-4xl font-bold text-center font-['Poppins'] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-2">
             Instagram Memories Platform
-          </h3>
-          <p className="text-gray-700 text-sm mb-4 text-center font-medium">
+          </h3> */}
+          <p className="text-xl font-bold text-center font-['Poppins'] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent mb-2 font-kui">
             @memories.platform – holidays ✨, fun times & story highlights
           </p>
         </div>
