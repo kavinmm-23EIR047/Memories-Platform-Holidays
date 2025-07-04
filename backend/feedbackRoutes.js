@@ -8,14 +8,13 @@ require("dotenv").config();
 const credentials = {
   type: "service_account",
   project_id: process.env.GOOGLE_PROJECT_ID,
- private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
   client_email: process.env.GOOGLE_CLIENT_EMAIL,
   client_id: process.env.GOOGLE_CLIENT_ID,
 };
 
-
-const SHEET_ID = "1GPlGa7k_KOsGtFHwj5nd14WE31CN-VpvwZJp3d8yf8I"; // ✅ Your sheet ID
-const SHEET_NAME = "feedback"; // ✅ Tab name inside your sheet
+const SHEET_ID = "1GPlGa7k_KOsGtFHwj5nd14WE31CN-VpvwZJp3d8yf8I"; // Your Google Sheet ID
+const SHEET_NAME = "feedback"; // Sheet tab name
 
 const auth = new google.auth.GoogleAuth({
   credentials,
@@ -23,21 +22,22 @@ const auth = new google.auth.GoogleAuth({
 });
 const sheets = google.sheets({ version: "v4", auth });
 
-// ✅ Load Feedbacks from Google Sheets
+// ✅ Load Feedbacks from Google Sheets (C to H)
 async function loadFeedbacks() {
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SHEET_ID,
-      range: `${SHEET_NAME}!A2:E`,
+      range: `${SHEET_NAME}!C2:H`,
     });
 
     const rows = response.data.values || [];
-    return rows.map(([id, name, email, comment, rating]) => ({
-      id,
-      name,
-      email,
-      comment,
-      rating: parseInt(rating),
+
+    return rows.map((row) => ({
+      starRating: row[0] || "",       // C - Rating
+      comment: row[1] || "",          // D - Comment
+      name: row[2] || "Anonymous",   // E - Name
+      image: row[3] || "",            // F - Photo
+      date: row[5] || "",             // H - Updated At (skip G)
     }));
   } catch (err) {
     console.error("❌ Error loading feedbacks:", err.message);
@@ -46,15 +46,15 @@ async function loadFeedbacks() {
 }
 
 // ✅ Append a new feedback row
-async function appendFeedback({ id, name, email, comment, rating }) {
+async function appendFeedback({ starRating, comment, name, image, date }) {
   try {
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
-      range: `${SHEET_NAME}!A:E`,
+      range: `${SHEET_NAME}!C:H`,
       valueInputOption: "RAW",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
-        values: [[id, name, email, comment, rating]],
+        values: [[starRating, comment, name, image, "", date]], // skip G with ""
       },
     });
   } catch (err) {
@@ -63,19 +63,18 @@ async function appendFeedback({ id, name, email, comment, rating }) {
   }
 }
 
-// ✅ POST /api/feedback - Submit feedback
+// ✅ POST /api/feedback
 router.post("/feedback", async (req, res) => {
-  const { name, email, comment, rating } = req.body;
+  const { name, email, comment, rating, image = "", date = new Date().toISOString() } = req.body;
+
   if (!name || !email || !comment || !rating) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
-  const id = Date.now().toString();
-
   try {
-    await appendFeedback({ id, name, email, comment, rating });
+    await appendFeedback({ starRating: rating, comment, name, image, date });
 
-    // ✅ Send Email Notification
+    // ✅ Send email notification
     const { EMAIL_USER, EMAIL_PASS, EMAIL_TO } = process.env;
     if (EMAIL_USER && EMAIL_PASS && EMAIL_TO) {
       const transporter = nodemailer.createTransport({
@@ -109,7 +108,7 @@ router.post("/feedback", async (req, res) => {
   }
 });
 
-// ✅ GET /api/feedbacks - Fetch all feedbacks
+// ✅ GET /api/feedbacks
 router.get("/feedbacks", async (req, res) => {
   try {
     const feedbacks = await loadFeedbacks();

@@ -365,41 +365,50 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Achievements */}
-        <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-6 text-center font-kui">
-          Our <span className="text-[#fecc00] font-semibold font-kui">Achievements</span>
-        </h2>
+     {/* Achievements */}
+<h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-6 text-center font-kui">
+  Our <span className="text-[#fecc00] font-semibold font-kui">Achievements</span>
+</h2>
 
-        <p className="text-center text-gray-700 max-w-2xl mx-auto mb-10 font-lui">
-          Over the years, we’ve celebrated milestones that reflect our strength, unity, and determination. 
-          From setting records to inspiring communities, every achievement tells our story of passion and perseverance.
-        </p>
+<p className="text-center text-gray-700 max-w-2xl mx-auto mb-10 font-lui">
+  Over the years, we’ve celebrated milestones that reflect our strength, unity, and determination. 
+  From setting records to inspiring communities, every achievement tells our story of passion and perseverance.
+</p>
 
-        <div className="flex justify-center">
-          <div className="relative w-full max-w-md rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 group">
-            <a
-              href="https://www.instagram.com/reel/DCePyl6otRU/?igsh=MWwwdW9vNGR1Zzg0MQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full z-10 transition duration-300 group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-400"
-            >
-              <i className="fab fa-instagram text-xl"></i>
-            </a>
-            <img
-              src={achievementImage}
-              alt="Record of Munnar – Single Stroke with 90 Jeeps"
-              className="w-full h-60 object-cover"
-            />
-            <div className="bg-white p-6">
-              <h3 className="text-xl font-semibold text-[#060304] mb-2 font-kui">
-                Record of Munnar – <span className="font-kui text-[#fecc00]">Single Stroke with 90 Jeeps</span>
-              </h3>
-              <p className="text-gray-600 text-sm font-lui">
-                Our team created history in Munnar by pulling 90 jeeps in a single stroke — a demonstration of incredible coordination, power, and team spirit.
-              </p>
-            </div>
-          </div>
-        </div>
+<div className="flex justify-center">
+  <div className="relative w-full max-w-md rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 group">
+    <a
+      href="https://www.instagram.com/reel/DCePyl6otRU/?igsh=MWwwdW9vNGR1Zzg0MQ=="
+      target="_blank"
+      rel="noopener noreferrer"
+      className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full z-10 transition duration-300 group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-400"
+    >
+      <i className="fab fa-instagram text-xl"></i>
+    </a>
+
+    {/* Video with controls, autoplay, muted — runs once */}
+    <video
+      src="https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751646159/WhatsApp_Video_2025-07-04_at_10.15.06_AM_mm6lkn.mp4"
+      className="w-full h-60 object-cover"
+      autoPlay
+      muted
+      controls
+      playsInline
+      controlsList="nodownload"
+    />
+
+    <div className="bg-white p-6">
+      <h3 className="text-xl font-semibold text-[#060304] mb-2 font-kui">
+        Record of Munnar – <span className="font-kui text-[#fecc00]">Single Stroke with 90 Jeeps</span>
+      </h3>
+      <p className="text-gray-600 text-sm font-lui">
+        Our team created history in Munnar by pulling 90 jeeps in a single stroke — a demonstration of incredible coordination, power, and team spirit.
+      </p>
+    </div>
+  </div>
+</div>
+
+
 
         {/* Happy Moments Gallery */}
         <h2 className="text-2xl md:text-3xl text-[#060304] mt-16 mb-8 text-center font-kui">

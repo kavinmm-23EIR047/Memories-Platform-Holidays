@@ -6,7 +6,8 @@ import { FiDownload } from "react-icons/fi";
 const videoList = [
   "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1719050000/home3_a2tmdc.mp4",
   "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1719050100/home1_imx7y3.mp4",
-  "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1719050200/home5_yqxdji.mp4"
+  "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1719050200/home5_yqxdji.mp4",
+  "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751646159/WhatsApp_Video_2025-07-04_at_10.15.06_AM_mm6lkn.mp4"
 ];
 
 const Home = () => {
