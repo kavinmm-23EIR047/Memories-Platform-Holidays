@@ -13,8 +13,8 @@ import "swiper/css/navigation";
 
 // Assets
 import collegeImg from "../assets/gallery/7.jpeg";
-import familyImg from "../assets/logos/familyservice.jpg";
-import corporateImg from "../assets/logos/corporateservice.jpg";
+const familyImg = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636304/fam_x9ojqr.jpg";
+const corporateImg = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636307/cor_hiexeq.jpg";
 import schoolImg from "../assets/logos/schoolservice.jpeg";
 
 

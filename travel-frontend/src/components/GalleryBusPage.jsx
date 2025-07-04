@@ -114,6 +114,17 @@ import img117 from "../assets/gallery/bus1/1b7.jpeg";
 import img118 from "../assets/gallery/bus1/1b8.jpeg";
 import img119 from "../assets/gallery/bus1/1b9.jpeg";
 
+const bus5_1 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636631/WhatsApp_Image_2025-07-03_at_8.20.11_PM_2_zdgi2u.jpg";
+const bus5_2 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636631/WhatsApp_Image_2025-07-03_at_9.22.13_PM_irej0j.jpg";
+const bus5_3 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636632/WhatsApp_Image_2025-07-03_at_9.22.12_PM_xxa5zi.jpg";
+const bus5_4 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636623/WhatsApp_Image_2025-07-03_at_8.20.11_PM_1_fohzmx.jpg";
+const bus5_5 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636616/WhatsApp_Image_2025-07-03_at_8.20.12_PM_cswq9u.jpg";
+const bus5_6 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636623/WhatsApp_Image_2025-07-03_at_8.20.10_PM_zm7frj.jpg";
+const bus5_7 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636629/WhatsApp_Image_2025-07-03_at_8.20.10_PM_1_sx69zl.jpg";
+const bus5_8 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636635/WhatsApp_Image_2025-07-03_at_8.20.11_PM_pxglq0.jpg";
+
+
+const bus5Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751637188/WhatsApp_Video_2025-07-03_at_9.22.13_PM_vetpxm.mp4";
 const bus4Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562840/bus4video_ixejer.mp4";
 const bus2Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562833/bus2video_njifkx.mp4";
 const bus9Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562837/9busvideo_g2a4uy.mp4";
@@ -133,15 +144,24 @@ const busData = {
   },
 
   bus4: {
-    name: "Murugan",
+    name: "Murugan Green",
     images: [img91, img92, img93, img94, img95, img96, img97, img98],
     video: bus4Video,
   },
-  // bus5: {
-  //   name: "Chandru",
-  //   images: [img51, img52, img53, img54],
-  //   // video: bus5Video,
-  // },
+  bus5 : {
+  name: "Murugan Blue",
+  images: [
+    bus5_1,
+    bus5_2,
+    bus5_3,
+    bus5_4,
+    bus5_5,
+    bus5_6,
+    bus5_7,
+    bus5_8,
+  ],
+  video: bus5Video,
+  },
   bus6: {
     name: "Mano",
     images: [img61, img62, img63, img64, img65, img66, img67, img68],
