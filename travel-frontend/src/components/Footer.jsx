@@ -21,17 +21,17 @@ const Footer = () => {
           <img
             src={logo}
             alt="Memories Platform Logo"
-            className="w-44 sm:w-48 md:w-52 lg:w-56 xl:w-64 mb-4 mx-auto md:mx-0 drop-shadow-lg"
+            className="w-44 sm:w-48 md:w-52 lg:w-56 xl:w-64 -mt-20  mx-auto md:mx-0 drop-shadow-lg"
           />
-          <p className="text-gray-300 leading-relaxed font-kui">
+          <p className="text-gray-300 leading-relaxed font-kui -mt-5">
             Travel beyond boundaries with Memories Platform. Discover unforgettable holiday experiences crafted just for you.
           </p>
         </div>
 
         {/* Quick Links */}
         <div className="text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-3 text-yellow-400 font-kui">Quick Links</h3>
-          <ul className="space-y-2 text-gray-300">
+          <h3 className="text-lg font-semibold mb-3 text-yellow-400 font-kui -mt-4">Quick Links</h3>
+          <ul className="space-y-2 text-gray-300 -mt-">
             <li><a href="#about" className="hover:text-yellow-300 transition font-lui">About Us</a></li>
             <li><a href="#services" className="hover:text-yellow-300 transition font-lui">Services</a></li>
             <li><a href="#reviews" className="hover:text-yellow-300 transition font-lui">Reviews</a></li>
@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* Contact & Social */}
         <div className="text-center md:text-left">
-          <h3 className="text-lg font-semibold mb-3 text-yellow-400 font-kui">Contact Us</h3>
+          <h3 className="text-lg font-semibold mb-3 text-yellow-400 font-kui -mt-4">Contact Us</h3>
           <p className="text-gray-300 mb-2 font-cui">
             Phone: <a href="tel:+919629932787" className="hover:text-yellow-300 transition">+91 96299 32787</a>
           </p>
@@ -89,7 +89,15 @@ const Footer = () => {
       {/* Bottom Text */}
       <div className="relative z-10 text-center text-gray-400 text-xs mt-10 border-t border-yellow-900 pt-4 px-4 font-kui">
         &copy; {new Date().getFullYear()} Memories Platform. All rights reserved. Developed by{" "}
-        <span className="text-yellow-300 font-medium font-kui">AK WebFlair Technologies</span>.
+       <a 
+  href="https://kavinsportfolio-6c0p.onrender.com" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="text-yellow-300 font-medium font-kui"
+>
+  AK WebFlair Technologies
+</a>
+
       </div>
     </footer>
   );

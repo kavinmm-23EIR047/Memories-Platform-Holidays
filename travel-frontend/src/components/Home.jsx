@@ -81,7 +81,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="mt-6 text-2xl md:text-3xl font-extrabold text-center px-6 text-[#f1c709]"
+          className="mt-6 text-2xl md:text-3xl font-extrabold text-center px-6 text-[#f1c709] font-kui drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]"
         >
           Leading Trip Planner
         </motion.p>
