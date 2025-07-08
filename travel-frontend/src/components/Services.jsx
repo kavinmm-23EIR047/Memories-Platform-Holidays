@@ -23,8 +23,6 @@ import celebel1 from '../assets/logos/celebel1.jpg';
 import celebel2 from '../assets/logos/celebel2.jpg';
 import celebel3 from '../assets/logos/celebel3.jpg';
 
-import achievementImage from '../assets/logos/acheive.jpg'; // adjust path as needed
-
 import img1 from '../assets/gallery/1.jpeg';
 import img2 from '../assets/gallery/2.jpeg';
 import img3 from '../assets/gallery/3.jpeg';
@@ -152,7 +150,7 @@ const CardItem = ({ pkg, swiper }) => {
       <img src={pkg.image} alt={pkg.title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h3 className="text-lg font-bold text-[#302d00] mb-2 font-kui">{pkg.title}</h3>
-        <p className="text-sm text-[#7c7a69] mb-3 font-lui">{pkg.description}</p>
+        <p className="text-sm text-black mb-3 font-lui">{pkg.description}</p>
 
         <div className="aspect-video mb-3">
           <video
@@ -173,7 +171,7 @@ const CardItem = ({ pkg, swiper }) => {
           href={pkg.pdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#fef3c7] text-[#4a3f00] px-3 py-1 rounded text-sm font-medium hover:bg-[#fde68a] transition font-lui"
+          className="bg-[#fef3c7] text-black px-3 py-1 rounded text-sm font-medium hover:bg-[#fde68a] transition font-lui"
         >
           Download Package PDF
         </a>
@@ -365,48 +363,93 @@ const Services = () => {
           ))}
         </div>
 
-     {/* Achievements */}
+{/* Achievements */}
 <h2 className="text-2xl md:text-3xl font-bold text-[#060304] mt-16 mb-6 text-center font-kui">
   Our <span className="text-[#fecc00] font-semibold font-kui">Achievements</span>
 </h2>
 
-<p className="text-center text-gray-700 max-w-2xl mx-auto mb-10 font-lui">
+<p className="text-center text-black max-w-2xl mx-auto mb-10 font-lui">
   Over the years, we’ve celebrated milestones that reflect our strength, unity, and determination. 
   From setting records to inspiring communities, every achievement tells our story of passion and perseverance.
 </p>
 
 <div className="flex justify-center">
   <div className="relative w-full max-w-md rounded-xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-300 group">
-    <a
-      href="https://www.instagram.com/reel/DCePyl6otRU/?igsh=MWwwdW9vNGR1Zzg0MQ=="
-      target="_blank"
-      rel="noopener noreferrer"
-      className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full z-10 transition duration-300 group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-400"
-    >
-      <i className="fab fa-instagram text-xl"></i>
-    </a>
 
-    {/* Video with controls, autoplay, muted — runs once */}
-    <video
-      src="https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751646159/WhatsApp_Video_2025-07-04_at_10.15.06_AM_mm6lkn.mp4"
-      className="w-full h-60 object-cover"
-      autoPlay
-      muted
-      controls
-      playsInline
-      controlsList="nodownload"
-    />
+    {/* Swiper Video Carousel */}
+    <div className="relative">
+      <Swiper
+        modules={[Pagination, Navigation, Autoplay]}
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        loop
+        className="rounded-xl"
+      >
+        {/* Slide 1 */}
+        <SwiperSlide>
+          <div className="relative">
+            <a
+              href="https://www.instagram.com/reel/DCePyl6otRU/?igsh=MWwwdW9vNGR1Zzg0MQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full z-10 transition duration-300 group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-400"
+            >
+              <i className="fab fa-instagram text-xl"></i>
+            </a>
 
+            <video
+              src="https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751907386/N̶O̶_̶R̶U̶L̶E̶S̶_̶_̶_̶_̶C̶R̶E̶W̶_̶M̶E̶M̶O̶R̶I̶E̶S̶_̶P̶L̶A̶T̶F̶O̶R̶M̶......_trending_viral_inst_cwct5e.mp4"
+              className="w-full h-60 object-cover"
+              autoPlay
+              muted
+              controls
+              playsInline
+              controlsList="nodownload"
+            />
+          </div>
+        </SwiperSlide>
+
+        {/* Slide 2 */}
+        <SwiperSlide>
+          <div className="relative">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute top-4 right-4 text-white bg-black/60 p-2 rounded-full z-10 transition duration-300 group-hover:bg-gradient-to-tr group-hover:from-pink-500 group-hover:to-yellow-400"
+            >
+              <i className="fab fa-instagram text-xl"></i>
+            </a>
+
+            <video
+              src="https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751646159/WhatsApp_Video_2025-07-04_at_10.15.06_AM_mm6lkn.mp4"
+              className="w-full h-60 object-cover"
+              autoPlay
+              muted
+              controls
+              playsInline
+              controlsList="nodownload"
+          
+            />
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
+
+    {/* Static Text Below Video */}
     <div className="bg-white p-6">
       <h3 className="text-xl font-semibold text-[#060304] mb-2 font-kui">
         Record of Munnar – <span className="font-kui text-[#fecc00]">Single Stroke with 90 Jeeps</span>
       </h3>
-      <p className="text-gray-600 text-sm font-lui">
+      <p className="text-black text-sm font-lui">
         Our team created history in Munnar by pulling 90 jeeps in a single stroke — a demonstration of incredible coordination, power, and team spirit.
       </p>
     </div>
   </div>
 </div>
+
 
 
 

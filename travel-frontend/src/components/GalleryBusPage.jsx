@@ -124,8 +124,8 @@ const bus5_7 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636629/Wh
 const bus5_8 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636635/WhatsApp_Image_2025-07-03_at_8.20.11_PM_pxglq0.jpg";
 
 
-const bus5Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751637188/WhatsApp_Video_2025-07-03_at_9.22.13_PM_vetpxm.mp4";
-const bus4Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562840/bus4video_ixejer.mp4";
+const bus5Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562840/bus4video_ixejer.mp4";
+const bus4Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1751948079/viralvideos_virlalvideo_trending_tamilnadutourism_trendingreels_bus_instagram_u8k0tf.mp4";
 const bus2Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562833/bus2video_njifkx.mp4";
 const bus9Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562837/9busvideo_g2a4uy.mp4";
 const bus10Video = "https://res.cloudinary.com/dpdhfrk2t/video/upload/v1750562844/bus10video_rqkrhr.mp4";
@@ -144,12 +144,12 @@ const busData = {
   },
 
   bus4: {
-    name: "Murugan Green",
+    name: "Murugan",
     images: [img91, img92, img93, img94, img95, img96, img97, img98],
     video: bus4Video,
   },
   bus5 : {
-  name: "Murugan Blue",
+  name: "Coach",
   images: [
     bus5_1,
     bus5_2,
@@ -168,7 +168,7 @@ const busData = {
     // video: bus6Video,
   },
   bus7: {
-    name: "Traveller",
+    name: "Tempo Traveller",
     images: [img71, img72, img73, img74, img75, img76, img77, img78, img79],
     // video: bus7Video,
   },

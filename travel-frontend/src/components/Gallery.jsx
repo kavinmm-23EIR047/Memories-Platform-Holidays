@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 const bus1 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750562996/bus1_seckuv.jpg";
 const bus2 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750562997/bus2_dddqem.jpg";
 const bus5 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1751636631/WhatsApp_Image_2025-07-03_at_9.22.13_PM_irej0j.jpg";
-const bus4 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750562993/bus4_wiikbr.jpg";
+import bus4 from "../assets/gallery/bus4/4b2.jpeg";
 const bus6 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750562992/bus6_nhl2zl.jpg";
 const bus7 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750562993/bus7_eucgcz.jpg";
 // const bus8 = "https://res.cloudinary.com/dpdhfrk2t/image/upload/v1750563004/bus8_u9cbs7.jpg";
@@ -21,9 +21,9 @@ const buses = [
   { id: "bus6", name: "Mano", image: bus6 },
   { id: "bus10", name: "Pettakarran", image: bus10 },
   { id: "bus9", name: "Jai Sri", image: bus9 },
-  { id: "bus4", name: "Murugan Green", image: bus4 },
-  { id: "bus5", name: "Murugan Blue", image: bus5 },
-  { id: "bus7", name: "Traveller", image: bus7 },
+  { id: "bus4", name: "Murugan", image: bus4 },
+  { id: "bus5", name: "coach", image: bus5 },
+  { id: "bus7", name: "Tempo Traveller", image: bus7 },
 ];
 
 const notes = [

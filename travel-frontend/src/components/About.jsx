@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import aboutImage from "../assets/logos/about.jpeg";
-import {
-  Target,
-  Eye,
-  User2,
-} from "lucide-react";
-
+import { FaTelegramPlane } from "react-icons/fa";
 const About = () => {
   return (
     <section
@@ -20,11 +15,11 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#fecc00] font-edu">
-            Let's <span className="text-[#060304] font-semibold">go</span>
+          <h2 className="text-4xl md:text-3xl font-bold text-[#fecc00] font-lui">
+            Your journey<span className="text-[#060304] font-semibold"> start's here</span>
           </h2>
           <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto font-kui font-bold">
-            Learn more about who we are and why you here and what we do.
+            Learn more about who we are and why book with us and what we do.
           </p>
         </motion.div>
 
@@ -51,61 +46,30 @@ const About = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Mission */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          >
-            <Target className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
-               Expedition 
-            </h3>
-            <p className="text-[#d1d1d1] text-base leading-relaxed font-lui">
-              Inspiring Journeys, Creating Memories – Multiple Destination at a Time.
-Would you like it to sound more adventurous, luxurious, family-friendly, or eco-conscious? I can Design it your Travel.
-            </p>
-          </motion.div>
+      <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-10 rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-300 max-w-5xl mx-auto"
+>
+    <FaTelegramPlane className="mx-auto text-[#fecc00] mb-4" size={36} />
 
-          {/* Vision */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          >
-            <Eye className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
-             Field of Innovation
-            </h3>
-            <p className="text-[#d1d1d1] text-base leading-relaxed font-lui">
-              Guiding Journeys, Crafting Dreams — Where Every Destination Becomes a Story
-— Where Technology Meets Wonder, and Every Journey Begins with a Natural Spark of Discovery.
-            </p>
-          </motion.div>
+  <h3 className="text-2xl font-bold text-[#fecc00] mb-6 font-kui text-center">
+    Every trip tells a story <span className="text=[#691303]">crafted with care and creativity</span>
+  </h3>
 
-          {/* About Me */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            className="bg-[#691303] border border-[#fecc00]/30 backdrop-blur-md bg-opacity-95 p-6 md:p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          >
-            <User2 className="mx-auto text-[#fecc00] mb-4" size={36} />
-            <h3 className="text-2xl font-semibold text-[#fecc00] mb-4 font-kui">
-              About Us
-            </h3>
-            <p className="text-[#e0e0e0] text-base leading-relaxed font-lui">
-              At MEMORIESPLATFORM - HOLIDAYS, we believe that every journey should be as unique and unforgettable as the traveler embarking on it. Founded with a passion for exploration and a commitment to excellence, we’ve been crafting exceptional travel experiences that go beyond the ordinary.
-Let’s turn your next destination into a meaningful story.
-            </p>
-          </motion.div>
+  <p className="text-[#e0e0e0] text-base text-justify leading-relaxed font-lui">
+    At <strong>MEMORIESPLATFORM - HOLIDAYS</strong>, we believe that every journey should be as unique and unforgettable as the traveler embarking on it. We design fully tailored multi‑destination trips that blend personalized accommodations, curated activities, and seamless transportation. A trained staff member ensures you enjoy your travel without stress, with safety guarantees, insider local insights, and engaging updates throughout the trip.
+    We're not just a travel company — we’re storytellers. We guide journeys and craft dreams, where every destination becomes a story. This is where technology meets wonder, and every step forward is sparked by a natural sense of discovery. From the first moment to the last, we’re committed to transforming your dream vacation into a meaningful, immersive, and inspiring experience.
+  </p>
+</motion.div>
+
+
+
         </div>
-      </div>
+
     </section>
   );
 };
-
 export default About;
+
