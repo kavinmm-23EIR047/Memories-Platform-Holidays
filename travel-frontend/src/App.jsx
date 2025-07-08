@@ -53,27 +53,23 @@ function App() {
 
   return (
     <div className="bg-white text-gray-800 relative">
-      {/* 📢 Full-screen Alert for Instagram Browser */}
+      {/* Top Alert Bar for Instagram */}
       {isInstagramBrowser && showAlert && (
-        <div className="fixed inset-0 z-[9999] bg-[#330000] text-white flex items-center justify-center text-center px-6">
-          <div>
-            <h2 className="text-2xl font-bold mb-3">🚫 Limited in Instagram</h2>
-            <p className="mb-4 text-lg">
-              Please tap <strong>•••</strong> and select <strong>"Open in Browser"</strong> to enjoy the full experience (video, buttons, sound).
-            </p>
-            <p className="text-sm opacity-70">(Instagram’s in-app browser blocks some features)</p>
-            <button
-              onClick={() => setShowAlert(false)}
-              className="mt-5 px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-300 transition"
-            >
-              Close and Continue Anyway
-            </button>
-          </div>
+        <div className="fixed top-0 left-0 w-full z-50 bg-[#330000] text-white px-4 py-2 shadow-md flex items-center justify-between">
+          <p className="text-sm">
+            ⚠️ Some features may not work inside Instagram. Tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong>.
+          </p>
+          <button
+            onClick={() => setShowAlert(false)}
+            className="ml-4 text-white text-xl font-bold hover:text-yellow-400 transition"
+          >
+            ×
+          </button>
         </div>
       )}
 
-      {/* Main App UI */}
-      <div>
+      {/* Push content down if alert is shown */}
+      <div className={isInstagramBrowser && showAlert ? "pt-14" : ""}>
         <Navbar />
         <Routes>
           <Route path="/" element={<MainScrollPage />} />
