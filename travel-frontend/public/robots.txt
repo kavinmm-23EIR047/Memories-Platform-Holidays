@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://memories-platform-holidays.vercel.app/sitemap.xml
