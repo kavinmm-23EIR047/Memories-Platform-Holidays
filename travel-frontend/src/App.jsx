@@ -43,7 +43,8 @@ function App() {
 
   useEffect(() => {
     const ua = navigator.userAgent.toLowerCase();
-    if (ua.includes("instagram")) {
+    console.log("User Agent →", ua); // Debug log
+    if (ua.includes("instagram") || ua.includes("ig")) {
       setIsInstagramBrowser(true);
     }
   }, []);
@@ -74,5 +75,6 @@ function App() {
 }
 
 export default App;
+
 
 
