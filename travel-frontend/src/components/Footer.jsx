@@ -42,10 +42,10 @@ const Footer = () => {
         {/* Contact & Social */}
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-3 text-yellow-400 font-kui -mt-4">Contact Us</h3>
-          <p className="text-gray-300 mb-2 font-cui">
+          <p className="text-gray-300 mb-2 font-lui">
             Phone: <a href="tel:+919629932787" className="hover:text-yellow-300 transition">+91 96299 32787</a>
           </p>
-          <p className="text-gray-300 mb-4 font-cui">
+          <p className="text-gray-300 mb-4 font-lui">
             Email: <a href="mailto:memoriesplatform@gmail.com" className="hover:text-yellow-300 transition">memoriesplatform@gmail.com</a>
           </p>
           <div className="flex justify-center md:justify-start gap-5 text-2xl mt-2">
