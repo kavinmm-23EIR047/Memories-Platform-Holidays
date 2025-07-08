@@ -54,13 +54,13 @@ function App() {
     <div className="bg-white text-gray-800 relative">
       {/* 📢 Instagram-only banner */}
       {isInstagramBrowser && (
-        <div className="bg-blue-100 text-blue-900 text-sm py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md">
-          📢 For a better experience (video/sound), tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong>
+        <div className="bg-yellow-100 text-yellow-800 text-sm py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md">
+          📢 Some features may not work inside Instagram. Tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong> for best experience.
         </div>
       )}
 
-      {/* Content offset if banner exists */}
-      <div className={isInstagramBrowser ? "pt-10" : ""}>
+      {/* Main content with top padding if banner is shown */}
+      <div className={isInstagramBrowser ? "pt-12" : ""}>
         <Navbar />
         <Routes>
           <Route path="/" element={<MainScrollPage />} />
@@ -74,4 +74,5 @@ function App() {
 }
 
 export default App;
+
 
