@@ -30,9 +30,10 @@ function App() {
       {/* ✅ Top Fixed Banner for Instagram Browsers */}
       {isInstagramBrowser && showAlert && (
         <div className="fixed top-0 left-0 w-full z-[9999] bg-[#330000] text-white px-4 py-2 shadow-md flex items-center justify-between text-sm md:text-base">
-          <p className="flex-1">
-            ⚠️ Some features may not work in Instagram. Tap <strong>•••</strong> → <strong>"Open in Browser"</strong>.
-          </p>
+         <p className="flex-1">
+  ⚠️ For the best experience, please open this page in your browser. Tap <strong>•••</strong> and select <strong>"Open in Browser"</strong>.
+</p>
+
           <button
             onClick={() => setShowAlert(false)}
             className="ml-4 text-white text-xl font-bold hover:text-yellow-400 transition"
