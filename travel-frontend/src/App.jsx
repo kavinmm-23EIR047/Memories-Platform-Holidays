@@ -51,13 +51,16 @@ function App() {
 
   if (loading) return <Loader onComplete={() => setLoading(false)} />;
 
+  // Determine top padding when banner is visible
+  const topPadding = isInstagramBrowser && showAlert ? "pt-14 md:pt-12" : "";
+
   return (
     <div className="bg-white text-gray-800 relative">
-      {/* Top Alert Bar for Instagram */}
+      {/* ✅ Top Fixed Banner for Instagram Browsers */}
       {isInstagramBrowser && showAlert && (
-        <div className="fixed top-0 left-0 w-full z-50 bg-[#330000] text-white px-4 py-2 shadow-md flex items-center justify-between">
-          <p className="text-sm">
-            ⚠️ Some features may not work inside Instagram. Tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong>.
+        <div className="fixed top-0 left-0 w-full z-[9999] bg-[#330000] text-white px-4 py-2 shadow-md flex items-center justify-between text-sm md:text-base">
+          <p className="flex-1">
+            ⚠️ Some features may not work in Instagram. Tap <strong>•••</strong> → <strong>"Open in Browser"</strong>.
           </p>
           <button
             onClick={() => setShowAlert(false)}
@@ -68,8 +71,8 @@ function App() {
         </div>
       )}
 
-      {/* Push content down if alert is shown */}
-      <div className={isInstagramBrowser && showAlert ? "pt-14" : ""}>
+      {/* ✅ Main Layout with conditional top padding */}
+      <div className={`${topPadding}`}>
         <Navbar />
         <Routes>
           <Route path="/" element={<MainScrollPage />} />
@@ -83,3 +86,4 @@ function App() {
 }
 
 export default App;
+
