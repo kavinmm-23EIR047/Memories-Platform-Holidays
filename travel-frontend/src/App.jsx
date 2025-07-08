@@ -40,10 +40,10 @@ import "./index.css";
 function App() {
   const [loading, setLoading] = useState(true);
   const [isInstagramBrowser, setIsInstagramBrowser] = useState(false);
+  const [showAlert, setShowAlert] = useState(true); // Controls banner visibility
 
   useEffect(() => {
     const ua = navigator.userAgent.toLowerCase();
-    console.log("User Agent →", ua); // Debug log
     if (ua.includes("instagram") || ua.includes("ig")) {
       setIsInstagramBrowser(true);
     }
@@ -53,15 +53,23 @@ function App() {
 
   return (
     <div className="bg-white text-gray-800 relative">
-      {/* 📢 Instagram-only banner */}
-      {isInstagramBrowser && (
-        <div className="bg-yellow-100 text-yellow-800 text-sm py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md">
-          📢 Some features may not work inside Instagram. Tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong> for best experience.
+      {/* 📢 Instagram-only Alert Banner */}
+      {isInstagramBrowser && showAlert && (
+        <div className="fixed top-0 left-0 w-full z-50 bg-yellow-100 text-yellow-900 px-4 py-3 shadow-md flex items-center justify-between">
+          <p className="text-sm">
+            📢 This site may not work fully inside Instagram. Tap <strong>•••</strong> and select <strong>"Open in Browser"</strong> for full experience.
+          </p>
+          <button
+            onClick={() => setShowAlert(false)}
+            className="text-yellow-900 font-bold text-xl ml-4"
+          >
+            ×
+          </button>
         </div>
       )}
 
-      {/* Main content with top padding if banner is shown */}
-      <div className={isInstagramBrowser ? "pt-12" : ""}>
+      {/* Add padding if alert is shown */}
+      <div className={isInstagramBrowser && showAlert ? "pt-14" : ""}>
         <Navbar />
         <Routes>
           <Route path="/" element={<MainScrollPage />} />
@@ -75,6 +83,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
