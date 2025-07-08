@@ -42,8 +42,8 @@ function App() {
   const [isInstagramBrowser, setIsInstagramBrowser] = useState(false);
 
   useEffect(() => {
-    const ua = navigator.userAgent || "";
-    if (ua.includes("Instagram")) {
+    const ua = navigator.userAgent.toLowerCase();
+    if (ua.includes("instagram")) {
       setIsInstagramBrowser(true);
     }
   }, []);
@@ -52,14 +52,14 @@ function App() {
 
   return (
     <div className="bg-white text-gray-800 relative">
-      {/* 📱 Banner only in Instagram browser */}
+      {/* 📢 Instagram-only banner */}
       {isInstagramBrowser && (
-        <div className="bg-yellow-300 text-black text-sm py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md">
-          ⚠️ For full video experience, tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong>
+        <div className="bg-blue-100 text-blue-900 text-sm py-2 px-4 text-center fixed top-0 left-0 w-full z-50 shadow-md">
+          📢 For a better experience (video/sound), tap <strong>•••</strong> and choose <strong>"Open in Browser"</strong>
         </div>
       )}
 
-      {/* Adjust for banner height */}
+      {/* Content offset if banner exists */}
       <div className={isInstagramBrowser ? "pt-10" : ""}>
         <Navbar />
         <Routes>
@@ -74,3 +74,4 @@ function App() {
 }
 
 export default App;
+
