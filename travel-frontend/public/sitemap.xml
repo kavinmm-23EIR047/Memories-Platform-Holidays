@@ -17,12 +17,55 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Example Dynamic Bus Gallery Page -->
-  <url>
-    <loc>https://memories-platform-holidays.vercel.app/gallery/BUS001</loc>
-    <lastmod>2025-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+ <!-- 🚍 Dynamic Bus Gallery Pages -->
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus1</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus2</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus4</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus5</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus6</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus7</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus9</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://memories-platform-holidays.vercel.app/gallery/bus10</loc>
+  <lastmod>2025-07-07</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
 
 </urlset>
