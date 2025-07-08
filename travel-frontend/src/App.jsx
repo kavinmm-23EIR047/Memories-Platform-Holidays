@@ -39,41 +39,48 @@ import "./index.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [showRedirectUI, setShowRedirectUI] = useState(false);
 
-  // 📱 Instagram Browser Detection + Redirect
   useEffect(() => {
     const isInstagram = navigator.userAgent.includes("Instagram");
-
     if (isInstagram) {
-      setIsRedirecting(true);
-
-      const androidChromeUrl = "googlechrome://memories-platform-holidays.vercel.app";
-      const normalUrl = "https://memories-platform-holidays.vercel.app";
-
-      // Try Chrome deep link (Android)
-      window.location.href = androidChromeUrl;
-
-      // Fallback (iOS or failed attempt)
-      setTimeout(() => {
-        window.location.href = normalUrl;
-      }, 1000);
+      setShowRedirectUI(true);
     }
   }, []);
 
-  // 🎯 Show redirect message if being redirected
-  if (isRedirecting) {
+  const handleOpenInBrowser = () => {
+    const androidChromeUrl = "googlechrome://memories-platform-holidays.vercel.app";
+    const fallbackUrl = "https://memories-platform-holidays.vercel.app";
+
+    // Try Chrome (Android)
+    window.location.href = androidChromeUrl;
+
+    // Fallback (iOS or other)
+    setTimeout(() => {
+      window.location.href = fallbackUrl;
+    }, 500);
+  };
+
+  // 🔁 Show open-in-browser UI for Instagram users
+  if (showRedirectUI) {
     return (
-      <div className="h-screen flex items-center justify-center bg-black text-white text-lg animate-pulse">
-        🚀 Opening in your browser for the best video experience...
+      <div className="h-screen bg-black flex flex-col items-center justify-center text-white px-4 text-center">
+        <h2 className="text-xl font-semibold mb-4">⚠️ Video playback is blocked in Instagram</h2>
+        <p className="mb-6">To view the site properly with video, please open in your default browser.</p>
+        <button
+          onClick={handleOpenInBrowser}
+          className="bg-white text-black px-5 py-2 rounded-full text-lg font-medium hover:bg-gray-200 transition"
+        >
+          🚀 Open in Browser
+        </button>
       </div>
     );
   }
 
-  // 🌀 Show loader initially
+  // 🔄 Normal loader
   if (loading) return <Loader onComplete={() => setLoading(false)} />;
 
-  // ✅ Main app content
+  // ✅ Main App content
   return (
     <div className="bg-white text-gray-800">
       <Navbar />
