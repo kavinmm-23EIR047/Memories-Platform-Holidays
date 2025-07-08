@@ -239,7 +239,7 @@ const Services = () => {
 
   {/* ✨ Overlay with better text readability */}
   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-[#fecc00]/20 to-transparent z-10 flex items-center justify-center px-4 py-2">
-<h3 className="text-xl md:text-2xl font-bold text-white text-center font-kui px-4 py-2 bg-[#fecc00]/25 rounded-md shadow-md">
+<h3 className="text-xl md:text-2xl font-bold text-white text-center font-kui px-4 py-2 bg-[#fecc00]/25 rounded-md shadow-md drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)]">
   {service.title}
 </h3>
 
