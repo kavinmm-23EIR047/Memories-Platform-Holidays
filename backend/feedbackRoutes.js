@@ -1,5 +1,4 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 const router = express.Router();
 require("dotenv").config();
@@ -16,11 +15,16 @@ const credentials = {
 const SHEET_ID = "1GPlGa7k_KOsGtFHwj5nd14WE31CN-VpvwZJp3d8yf8I"; // Your Google Sheet ID
 const SHEET_NAME = "feedback"; // Sheet tab name
 
-const auth = new google.auth.GoogleAuth({
-  credentials,
-  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-});
-const sheets = google.sheets({ version: "v4", auth });
+let sheets;
+try {
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+  sheets = google.sheets({ version: "v4", auth });
+} catch (err) {
+  console.error("❌ Google Sheets auth error:", err.message);
+}
 
 // ✅ Load Feedbacks from Google Sheets (C to H)
 async function loadFeedbacks() {
@@ -33,11 +37,11 @@ async function loadFeedbacks() {
     const rows = response.data.values || [];
 
     return rows.map((row) => ({
-      starRating: row[0] || "",       // C - Rating
-      comment: row[1] || "",          // D - Comment
-      name: row[2] || "Anonymous",   // E - Name
-      image: row[3] || "",            // F - Photo
-      date: row[5] || "",             // H - Updated At (skip G)
+      starRating: row[0] || "",
+      comment: row[1] || "",
+      name: row[2] || "Anonymous",
+      image: row[3] || "",
+      date: row[5] || "",
     }));
   } catch (err) {
     console.error("❌ Error loading feedbacks:", err.message);
@@ -65,45 +69,17 @@ async function appendFeedback({ starRating, comment, name, image, date }) {
 
 // ✅ POST /api/feedback
 router.post("/feedback", async (req, res) => {
-  const { name, email, comment, rating, image = "", date = new Date().toISOString() } = req.body;
+  const { name, comment, rating, image = "", date = new Date().toISOString() } = req.body;
 
-  if (!name || !email || !comment || !rating) {
-    return res.status(400).json({ error: "All fields are required" });
+  if (!name || !comment || !rating) {
+    return res.status(400).json({ error: "Name, comment, and rating are required" });
   }
 
   try {
     await appendFeedback({ starRating: rating, comment, name, image, date });
-
-    // ✅ Send email notification
-    const { EMAIL_USER, EMAIL_PASS, EMAIL_TO } = process.env;
-    if (EMAIL_USER && EMAIL_PASS && EMAIL_TO) {
-      const transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587,
-        secure: false,
-        auth: {
-          user: EMAIL_USER,
-          pass: EMAIL_PASS,
-        },
-      });
-
-      await transporter.sendMail({
-        from: `"Feedback Notifier" <${EMAIL_USER}>`,
-        to: EMAIL_TO,
-        subject: "📝 New Feedback Received",
-        html: `
-          <h2>New Feedback Submitted</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Rating:</strong> ${rating} ⭐</p>
-          <p><strong>Comment:</strong><br/>${comment}</p>
-        `,
-      });
-    }
-
     res.status(200).json({ success: true, message: "Feedback submitted successfully" });
   } catch (err) {
-    console.error("❌ Failed to save feedback:", err.message);
+    console.error("❌ Failed to submit feedback:", err.message);
     res.status(500).json({ error: "Internal server error" });
   }
 });

@@ -1,3 +1,4 @@
+// ✅ ENHANCED crash-protected version of your server.js
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -5,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
-const feedbackRoutes = require("./feedbackRoutes"); // Feedback route
+const feedbackRoutes = require("./feedbackRoutes");
 dotenv.config();
 
 const app = express();
@@ -22,16 +23,22 @@ const credentials = {
 
 const SHEET_ID = "1GPlGa7k_KOsGtFHwj5nd14WE31CN-VpvwZJp3d8yf8I"; // 🔁 Replace with your actual Google Sheet ID
 
-const auth = new google.auth.GoogleAuth({
-  credentials,
-  scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-});
-const sheets = google.sheets({ version: "v4", auth });
+let sheets;
+try {
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+  sheets = google.sheets({ version: "v4", auth });
+} catch (err) {
+  console.error("❌ Google Sheets setup failed:", err.message);
+}
 
 // ✨ Error Handling for Crashes
 process.on("uncaughtException", (err) => {
   console.error("[CRASH] Uncaught Exception:", err);
 });
+
 process.on("unhandledRejection", (err) => {
   console.error("[CRASH] Unhandled Rejection:", err);
 });
@@ -40,12 +47,15 @@ process.on("unhandledRejection", (err) => {
 app.use(express.json({ limit: "2mb" }));
 
 // ✅ Properly apply CORS
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  methods: ["GET", "POST", "PATCH", "OPTIONS"],
-  allowedHeaders: ["Content-Type"],
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
+  })
+);
+
 // ✅ Health Check
 app.get("/", (req, res) => {
   res.send("🚀 Server is running!");
@@ -72,15 +82,19 @@ app.post("/api/contact", async (req, res) => {
 
   try {
     // ✅ Save to Google Sheets (Contact tab)
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: SHEET_ID,
-      range: "Contact!A:H",
-      valueInputOption: "RAW",
-      insertDataOption: "INSERT_ROWS",
-      requestBody: {
-        values: [bookingData],
-      },
-    });
+    if (sheets) {
+      await sheets.spreadsheets.values.append({
+        spreadsheetId: SHEET_ID,
+        range: "Contact!A:H",
+        valueInputOption: "RAW",
+        insertDataOption: "INSERT_ROWS",
+        requestBody: {
+          values: [bookingData],
+        },
+      });
+    } else {
+      console.warn("⚠️ Sheets API not initialized.");
+    }
 
     // ✅ Send email notification
     const transporter = nodemailer.createTransport({
