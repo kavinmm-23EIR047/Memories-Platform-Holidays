@@ -90,7 +90,7 @@ const Footer = () => {
       <div className="relative z-10 text-center text-gray-400 text-xs mt-10 border-t border-yellow-900 pt-4 px-4 font-kui">
         &copy; {new Date().getFullYear()} Memories Platform. All rights reserved. Developed by{" "}
        <a 
-  href="https://kavinsportfolio-6c0p.onrender.com" 
+  href="https://akwebflairtechnologies.vercel.app/" 
   target="_blank" 
   rel="noopener noreferrer"
   className="text-yellow-300 font-medium font-kui"
