@@ -96,19 +96,33 @@ const Home = () => {
           Explore All States
         </motion.div>
 
-        {/* 📄 Brochure Download */}
-        <motion.a
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9 }}
-          href="/brochure.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex items-center gap-2 px-6 py-2 text-lg md:text-xl font-bold text-[#1a1200] bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
-        >
-          <FiDownload className="text-xl" />
-          Download Brochure
-        </motion.a>
+{/* 📄 Brochure Download */}
+<motion.button
+  initial={{ opacity: 0, scale: 0.9 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ delay: 0.9 }}
+  onClick={() => {
+    const link1 = document.createElement("a");
+    link1.href = "/brochure.pdf";
+    link1.download = "brochure.pdf";
+    document.body.appendChild(link1);
+    link1.click();
+    document.body.removeChild(link1);
+
+    const link2 = document.createElement("a");
+    link2.href = "/brochure1.pdf";
+    link2.download = "brochure1.pdf";
+    document.body.appendChild(link2);
+    link2.click();
+    document.body.removeChild(link2);
+  }}
+  className="mt-8 inline-flex items-center gap-2 px-6 py-2 text-lg md:text-xl font-bold text-[#1a1200] bg-gradient-to-r from-yellow-400 to-yellow-200 rounded-full shadow-md hover:scale-105 transition-transform duration-300"
+>
+  <FiDownload className="text-xl" />
+  Download Brochure
+</motion.button>
+
+
 
         {/* 🔗 Social Icons */}
         <div className="mt-6 flex gap-6 text-3xl justify-center">
