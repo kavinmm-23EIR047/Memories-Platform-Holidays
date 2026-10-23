@@ -153,7 +153,7 @@ const Home = () => {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/9629932787"
+            href="https://wa.me/919629932787"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
